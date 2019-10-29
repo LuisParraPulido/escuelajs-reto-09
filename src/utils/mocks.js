@@ -43,6 +43,22 @@ const productsMock = [
   },
 ];
 
+function filteredProductsMock(price) {
+  return productsMock.filter(product => product.price.includes(price));
+}
+
+class productsServiceMock {
+  async getProducts() {
+    return Promise.resolve(productsMock);
+  }
+
+  async createProduct() {
+    return Promise.resolve(productsMock[0]);
+  }
+}
+
 module.exports = {
-  productsMock
+  productsMock,
+  filteredProductsMock,
+  productsServiceMock
 };
