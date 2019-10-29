@@ -19,7 +19,8 @@ const platziStore = (app) => {
   });
 
   router.get('/products', async (req, res, next) => {
-    const storeProducts = await productService.getProducts()
+    const { price } = req.query;
+    const storeProducts = await productService.getProducts({ price })
     res.status(200).json(storeProducts);
   });
 
